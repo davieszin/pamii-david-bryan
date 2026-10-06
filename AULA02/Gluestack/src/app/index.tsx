@@ -1,4 +1,4 @@
-import { View } from "react-native";
+import { View, StyleSheet, Platform } from "react-native";
 import { Text } from "@/components/ui/text";
 
 import Logo from "./components/Logo";
@@ -7,7 +7,10 @@ import BotaoContinuar from "./components/BotaoContinuar";
 
 export default function Cadastro() {
   return (
-    <View className="flex-1 bg-black justify-center p-8">
+    <View
+      className="flex-1 bg-black justify-center p-8"
+      style={styles.mobileFrame}
+    >
 
       <Logo />
 
@@ -30,3 +33,17 @@ export default function Cadastro() {
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  mobileFrame: {
+    ...(Platform.OS === "web"
+      ? {
+          width: 390,
+          height: 844,
+          alignSelf: "center",
+          marginVertical: 20,
+          overflow: "hidden",
+        }
+      : {}),
+  },
+});
