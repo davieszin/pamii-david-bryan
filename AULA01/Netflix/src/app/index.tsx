@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Platform } from "react-native";
 
 import Logo from "./components/Logo";
 import CampoEmail from "./components/CampoEmail";
@@ -37,6 +37,15 @@ const styles = StyleSheet.create({
     backgroundColor: "#000",
     padding: 30,
     justifyContent: "center",
+    ...(Platform.OS === "web"
+      ? {
+          width: 390,
+          height: 844,
+          alignSelf: "center",
+          marginVertical: 20,
+          overflow: "hidden",
+        }
+      : {}),
   },
 
   titulo: {
