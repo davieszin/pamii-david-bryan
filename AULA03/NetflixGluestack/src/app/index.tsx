@@ -1,4 +1,4 @@
-import { View } from "react-native";
+import { View, StyleSheet, Platform } from "react-native";
 
 import Logo from "./components/Logo";
 import TituloCadastro from "./components/TituloCadastro";
@@ -11,7 +11,10 @@ import LinkLogin from "./components/LinkLogin";
 
 export default function Index() {
   return (
-    <View className="flex-1 bg-black justify-center px-6">
+    <View
+      className="flex-1 bg-black justify-center px-6"
+      style={styles.mobileFrame}
+    >
 
       <View className="w-full max-w-[430px] self-center">
 
@@ -36,3 +39,17 @@ export default function Index() {
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  mobileFrame: {
+    ...(Platform.OS === "web"
+      ? {
+          width: 390,
+          height: 844,
+          alignSelf: "center",
+          marginVertical: 20,
+          overflow: "hidden",
+        }
+      : {}),
+  },
+});
