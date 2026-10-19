@@ -1,11 +1,10 @@
-import {
-  Button,
-  ButtonText,
-} from "@/components/ui/button";
+import { Button, ButtonText } from "@/components/ui/button";
 
-export default function BotaoContinuar() {
+type Props = { onPress: () => void };
+
+export default function BotaoContinuar({ onPress }: Props) {
   return (
-    <Button className="bg-red-600">
+    <Button className="bg-red-600" onPress={onPress}>
       <ButtonText>Continuar</ButtonText>
     </Button>
   );
