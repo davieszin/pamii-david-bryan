@@ -1,18 +1,11 @@
-import {
-  Input,
-  InputField,
-} from "@/components/ui/input";
+import { Input, InputField } from "@/components/ui/input";
 
-export default function CampoEmail() {
+type Props = { value: string; onChangeText: (value: string) => void };
+
+export default function CampoEmail({ value, onChangeText }: Props) {
   return (
     <Input className="bg-zinc-800 border-zinc-700 h-14 mb-4 rounded-md">
-      <InputField
-        placeholder="E-mail"
-        placeholderTextColor="#999"
-        keyboardType="email-address"
-        autoCapitalize="none"
-        className="text-white"
-      />
+      <InputField placeholder="E-mail" placeholderTextColor="#999" keyboardType="email-address" autoCapitalize="none" autoCorrect={false} className="text-white" value={value} onChangeText={onChangeText} />
     </Input>
   );
 }
